@@ -42,27 +42,7 @@ class AppController extends GetxController {
     var code = '${scanData!.code}';
     log('Barcode Type: $format   Data: $code');
 
-    // if (Uri.tryParse(code)?.host.isNotEmpty ?? false) {
-    //   qrCode = "GO TO";
-    //   map.clear();
-    //   map["URL"] = Tuple2(code, "0");
-    // } else {
-    //   qrCode = code;
-    //   map = await mysql.readQRData(code);
-    // }
-    //=================
-    // map.clear();
-    // qrCode = code;
-    // map = await mysql.readQRData(code);
-    // if (map.isEmpty) {
-    //   if (Uri.tryParse(code)?.host.isNotEmpty ?? false) {
-    //     qrCode = "URI";
-    //     map["Click to go"] = Tuple2(code, "0");
-    //   } else {
-    //     qrCode = format.toUpperCase();
-    //     map[code] = Tuple2(format, "0");
-    //   }
-    // }
+    map.clear();
 
     // Test formatos conocidos
     if (Uri.tryParse(code)?.host.isNotEmpty ?? false) {
