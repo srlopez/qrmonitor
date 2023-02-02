@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:tuple/tuple.dart';
 
 import 'app_controller.dart';
-import 'data_page.dart';
+import 'qr_data_page.dart';
 import 'dialogs.dart';
 import 'colors.dart';
 
@@ -62,6 +62,7 @@ class ScaffoldPage extends StatelessWidget {
                 }
               }),
             ]),
+        // Página para mostrar resultados
         body: const DataPage(),
         //bottomSheet: SizedBox(height: 30),
         bottomNavigationBar: SizedBox(
@@ -71,12 +72,6 @@ class ScaffoldPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // const SizedBox(width: 20),
-                // FloatingActionButton(
-                //   onPressed: _.incrementCounter,
-                //   tooltip: 'Increment',
-                //   child: const Icon(Icons.add),
-                // ),
                 const SizedBox(width: 20),
                 ElevatedButton(
                     style: elevatedButtonStyle(context),
@@ -115,49 +110,6 @@ class ScaffoldPage extends StatelessWidget {
             ),
           ),
         ),
-        // floatingActionButtonLocation:
-        //     FloatingActionButtonLocation.centerFloat,
-        // floatingActionButton: Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: <Widget>[
-        //     // const SizedBox(width: 20),
-        //     // FloatingActionButton(
-        //     //   onPressed: _.incrementCounter,
-        //     //   tooltip: 'Increment',
-        //     //   child: const Icon(Icons.add),
-        //     // ),
-        //     const SizedBox(width: 20),
-        //     ElevatedButton(
-        //         onPressed: _.toogleCamera,
-        //         child: FutureBuilder(
-        //           future: _.getCameraInfo(),
-        //           builder: (context, snapshot) {
-        //             if (snapshot.data != null) {
-        //               return Icon(snapshot.data == _.facingFront
-        //                   ? Icons.camera_rear
-        //                   : Icons.camera_front); //CameraFacing.front
-        //             } else {
-        //               return const Icon(Icons.camera_rear);
-        //             }
-        //           },
-        //         )),
-        //     const SizedBox(width: 20),
-        //     ElevatedButton(
-        //       onPressed: _.toogleAction,
-        //       child: Icon(_.isPaused ? Icons.play_arrow : Icons.pause),
-        //     ),
-        //     const SizedBox(width: 20),
-        //     ElevatedButton(
-        //         onPressed: _.toogleFlash,
-        //         child: FutureBuilder(
-        //           future: _.getFlashStatus(),
-        //           builder: (context, snapshot) => Icon(snapshot.data ?? false
-        //               ? Icons.flash_off
-        //               : Icons.flash_on),
-        //         )),
-        //     const SizedBox(width: 20),
-        //   ],
-        // ) // This trailing comma makes auto-formatting nicer for build methods.
       ),
     );
   }

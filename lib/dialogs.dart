@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tuple/tuple.dart';
 
 import 'app_controller.dart';
-import 'data_page.dart';
+import 'qr_data_page.dart';
 import 'colors.dart';
 
 dialogTextStyle(BuildContext context) => const TextStyle(fontSize: 24.0);
