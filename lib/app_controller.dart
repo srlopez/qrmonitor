@@ -50,18 +50,37 @@ class AppController extends GetxController {
     //   qrCode = code;
     //   map = await mysql.readQRData(code);
     // }
-    map.clear();
-    qrCode = code;
-    map = await mysql.readQRData(code);
-    if (map.isEmpty) {
-      if (Uri.tryParse(code)?.host.isNotEmpty ?? false) {
-        qrCode = "URI";
-        map["Click to go"] = Tuple2(code, "0");
-      } else {
+    //=================
+    // map.clear();
+    // qrCode = code;
+    // map = await mysql.readQRData(code);
+    // if (map.isEmpty) {
+    //   if (Uri.tryParse(code)?.host.isNotEmpty ?? false) {
+    //     qrCode = "URI";
+    //     map["Click to go"] = Tuple2(code, "0");
+    //   } else {
+    //     qrCode = format.toUpperCase();
+    //     map[code] = Tuple2(format, "0");
+    //   }
+    // }
+
+    // Test formatos conocidos
+    if (Uri.tryParse(code)?.host.isNotEmpty ?? false) {
+      // URL
+      qrCode = "URI";
+      map["Click to go"] = Tuple2(code, "0");
+      //} else if (code.contains('mail')) { // Lo dejo aquí, mail, card, etc...
+    } else {
+      // VAMOS A LA BD
+      qrCode = code;
+      map = await mysql.readQRData(code);
+      if (map.isEmpty) {
+        // FORMATOS QUE NO MANEJAMOS
         qrCode = format.toUpperCase();
         map[code] = Tuple2(format, "0");
       }
     }
+
     update();
     if (store.msTimeout > 0) {
       Future.delayed(

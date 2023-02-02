@@ -5,7 +5,8 @@ import 'package:tuple/tuple.dart';
 
 import 'app_controller.dart';
 import 'data_page.dart';
-import 'globals.dart';
+import 'dialogs.dart';
+import 'colors.dart';
 
 class ScaffoldPage extends StatelessWidget {
   ScaffoldPage({super.key}) : super();
@@ -53,82 +54,87 @@ class ScaffoldPage extends StatelessWidget {
                 ];
               }, onSelected: (value) {
                 if (value == 0) {
-                  var entries =
-                      <Tuple3<String, Function, TextEditingController>>[
-                    Tuple3('Host', (val) => _.store.host = val.text.trim(),
-                        TextEditingController(text: _.store.host)),
-                    Tuple3(
-                        'Port',
-                        (val) => _.store.port = int.tryParse(val.text) ?? 3306,
-                        TextEditingController(text: _.store.port.toString())),
-                    Tuple3('Username', (val) => _.store.user = val.text.trim(),
-                        TextEditingController(text: _.store.user)),
-                    Tuple3(
-                        'Password',
-                        (val) => _.store.password = val.text.trim(),
-                        TextEditingController(text: _.store.password)),
-                    Tuple3(
-                        'Database',
-                        (val) => _.store.database = val.text.trim(),
-                        TextEditingController(text: _.store.database)),
-                  ];
+                  // var entries =
+                  //     <Tuple3<String, Function, TextEditingController>>[
+                  //   Tuple3('Host', (val) => _.store.host = val.text.trim(),
+                  //       TextEditingController(text: _.store.host)),
+                  //   Tuple3(
+                  //       'Port',
+                  //       (val) => _.store.port = int.tryParse(val.text) ?? 3306,
+                  //       TextEditingController(text: _.store.port.toString())),
+                  //   Tuple3('Username', (val) => _.store.user = val.text.trim(),
+                  //       TextEditingController(text: _.store.user)),
+                  //   Tuple3(
+                  //       'Password',
+                  //       (val) => _.store.password = val.text.trim(),
+                  //       TextEditingController(text: _.store.password)),
+                  //   Tuple3(
+                  //       'Database',
+                  //       (val) => _.store.database = val.text.trim(),
+                  //       TextEditingController(text: _.store.database)),
+                  // ];
 
-                  showDataConfig(context, _, "MySQL settings", entries);
+                  // showDataConfig(context, _, "MySQL settings", entries);
+                  showDBConfig(context, _);
                 } else if (value == 1) {
-                  var entries =
-                      <Tuple3<String, Function, TextEditingController>>[
-                    // Tuple3('QRCode', (val) => _.qrCode = val.text,
-                    //     TextEditingController(text: _.qrCode)),
-                    Tuple3(
-                        'Timeout (ms)',
-                        (val) =>
-                            _.store.msTimeout = int.tryParse(val.text) ?? 3000,
-                        TextEditingController(
-                            text: _.store.msTimeout.toString())),
-                    Tuple3('Color', (val) => _.store.color = val.text.trim(),
-                        TextEditingController(text: _.store.color)),
-                  ];
+                  showPreferences(context, _);
 
-                  showDataConfig(context, _, "User Preferences", entries);
+                  // var entries =
+                  //     <Tuple3<String, Function, TextEditingController>>[
+                  //   // Tuple3('QRCode', (val) => _.qrCode = val.text,
+                  //   //     TextEditingController(text: _.qrCode)),
+                  //   Tuple3(
+                  //       'Timeout (ms)',
+                  //       (val) =>
+                  //           _.store.msTimeout = int.tryParse(val.text) ?? 3000,
+                  //       TextEditingController(
+                  //           text: _.store.msTimeout.toString())),
+                  //   Tuple3('Color', (val) => _.store.color = val.text.trim(),
+                  //       TextEditingController(text: _.store.color)),
+                  // ];
+
+                  // showDataConfig(context, _, "User Preferences", entries);
                 } else if (value == 2) {
-                  showAboutDialog(
-                    context: context,
-                    applicationIcon: Image.asset(
-                      'assets/app_icon.png',
-                      height: 168 * .33,
-                      width: 168 * .33,
-                      fit: BoxFit.contain,
-                      // color: const Color.fromARGB(222, 255, 255, 255),
-                      // colorBlendMode: BlendMode.dstOut,
-                    ),
-                    applicationName: 'OSit QRmonitor',
-                    //applicationVersion: '0.0.1',
-                    applicationLegalese: '©2023 openServices.eus',
-                    children: <Widget>[
-                      Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                  'Esta App ha sido creada gracias a los siguientes amantes de la gastronomía:\n'),
-                              LinkButton(
-                                  "Paco",
-                                  "https://lafonoteca.net/wp-content/uploads/2009/11/R-3036384-1392851872-3270.jpeg",
-                                  1.5),
-                              const Text('    El de la Receta'),
-                              LinkButton(
-                                  "Héctor",
-                                  "https://www.linkedin.com/in/hectorherrero/",
-                                  1.5),
-                              const Text('    El del Restaurante'),
-                              LinkButton("Santi",
-                                  "https://www.linkedin.com/in/srlopezh/", 1.5),
-                              const Text('    El Cocinero'),
-                            ],
-                          ))
-                    ],
-                  );
+                  showAbout(context);
+
+                  // showAboutDialog(
+                  //   context: context,
+                  //   applicationIcon: Image.asset(
+                  //     'assets/app_icon.png',
+                  //     height: 168 * .33,
+                  //     width: 168 * .33,
+                  //     fit: BoxFit.contain,
+                  //     // color: const Color.fromARGB(222, 255, 255, 255),
+                  //     // colorBlendMode: BlendMode.dstOut,
+                  //   ),
+                  //   applicationName: 'OSit QRmonitor',
+                  //   //applicationVersion: '0.0.1',
+                  //   applicationLegalese: '©2023 openServices.eus',
+                  //   children: <Widget>[
+                  //     Padding(
+                  //         padding: const EdgeInsets.only(top: 15),
+                  //         child: Column(
+                  //           crossAxisAlignment: CrossAxisAlignment.start,
+                  //           children: [
+                  //             const Text(
+                  //                 'Esta App ha sido creada gracias a los siguientes amantes de la gastronomía:\n'),
+                  //             LinkButton(
+                  //                 "Paco",
+                  //                 "https://lafonoteca.net/wp-content/uploads/2009/11/R-3036384-1392851872-3270.jpeg",
+                  //                 1.5),
+                  //             const Text('    El de la Receta'),
+                  //             LinkButton(
+                  //                 "Héctor",
+                  //                 "https://www.linkedin.com/in/hectorherrero/",
+                  //                 1.5),
+                  //             const Text('    El del Restaurante'),
+                  //             LinkButton("Santi",
+                  //                 "https://www.linkedin.com/in/srlopezh/", 1.5),
+                  //             const Text('    El Cocinero'),
+                  //           ],
+                  //         ))
+                  //   ],
+                  // );
                 }
               }),
             ]),

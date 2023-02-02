@@ -3,7 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qrquery/app_controller.dart';
-import 'package:qrquery/globals.dart';
+
+import 'colors.dart';
 
 class QrController {
   QRViewController? controller;

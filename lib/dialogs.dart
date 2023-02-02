@@ -1,46 +1,95 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tuple/tuple.dart';
 
 import 'app_controller.dart';
+import 'data_page.dart';
+import 'colors.dart';
 
-mainColor(BuildContext context) => HexColor.fromHex(
-    Get.find<AppController>().store.color); //Colors.amber[900];
-//mainColor(context) => Theme.of(context).primaryColorDark;
+dialogTextStyle(BuildContext context) => const TextStyle(fontSize: 24.0);
 elevatedButtonStyle(BuildContext context) =>
     ElevatedButton.styleFrom(backgroundColor: mainColor(context));
 elevatedButtonCancel(context) =>
     ElevatedButton.styleFrom(backgroundColor: Colors.white);
 elevatedButtonCancelText(BuildContext context) =>
     const TextStyle(color: Colors.black);
-dialogTextStyle(BuildContext context) => const TextStyle(fontSize: 24.0);
 
-overlayColor(BuildContext context) =>
-    Theme.of(context).canvasColor.withAlpha(200);
-// overlayColor: ctrl.isDark
-//     ? Colors.white70
-//     : Colors.black87,
+showAbout(BuildContext context) {
+  showAboutDialog(
+    context: context,
+    applicationIcon: Image.asset(
+      'assets/app_icon.png',
+      height: 168 * .33,
+      width: 168 * .33,
+      fit: BoxFit.contain,
+      // color: const Color.fromARGB(222, 255, 255, 255),
+      // colorBlendMode: BlendMode.dstOut,
+    ),
+    applicationName: 'OSit QRmonitor',
+    //applicationVersion: '0.0.1',
+    applicationLegalese: '©2023 openServices.eus',
+    children: <Widget>[
+      Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                  'Esta App ha sido creada gracias a los siguientes amantes de la gastronomía:\n'),
+              LinkButton(
+                  "Paco",
+                  "https://lafonoteca.net/wp-content/uploads/2009/11/R-3036384-1392851872-3270.jpeg",
+                  1.5),
+              const Text('    El de la Receta'),
+              LinkButton(
+                  "Héctor", "https://www.linkedin.com/in/hectorherrero/", 1.5),
+              const Text('    El del Restaurante'),
+              LinkButton("Santi", "https://www.linkedin.com/in/srlopezh/", 1.5),
+              const Text('    El Cocinero'),
+            ],
+          ))
+    ],
+  );
+}
 
-extension HexColor on Color {
-  /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
-  static Color fromHex(String hexString) {
-    final buffer = StringBuffer();
-    if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
-    buffer.write(hexString.replaceFirst('#', ''));
-    return Color(int.parse(buffer.toString(), radix: 16));
-  }
+showPreferences(
+  BuildContext context,
+  AppController ctrl,
+) {
+  var entries = <Tuple3<String, Function, TextEditingController>>[
+    Tuple3(
+        'Timeout (ms)',
+        (val) => ctrl.store.msTimeout = int.tryParse(val.text) ?? 3000,
+        TextEditingController(text: ctrl.store.msTimeout.toString())),
+    Tuple3('Color', (val) => ctrl.store.color = val.text.trim(),
+        TextEditingController(text: ctrl.store.color)),
+  ];
 
-  /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
-  String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
-      '${red.toRadixString(16).padLeft(2, '0')}'
-      '${green.toRadixString(16).padLeft(2, '0')}'
-      '${blue.toRadixString(16).padLeft(2, '0')}'
-      '${alpha.toRadixString(16).padLeft(2, '0')}';
+  showDataConfig(context, "User Preferences", entries);
+}
+
+showDBConfig(
+  BuildContext context,
+  AppController ctrl,
+) {
+  var entries = <Tuple3<String, Function, TextEditingController>>[
+    Tuple3('Host', (val) => ctrl.store.host = val.text.trim(),
+        TextEditingController(text: ctrl.store.host)),
+    Tuple3('Port', (val) => ctrl.store.port = int.tryParse(val.text) ?? 3306,
+        TextEditingController(text: ctrl.store.port.toString())),
+    Tuple3('Username', (val) => ctrl.store.user = val.text.trim(),
+        TextEditingController(text: ctrl.store.user)),
+    Tuple3('Password', (val) => ctrl.store.password = val.text.trim(),
+        TextEditingController(text: ctrl.store.password)),
+    Tuple3('Database', (val) => ctrl.store.database = val.text.trim(),
+        TextEditingController(text: ctrl.store.database)),
+  ];
+
+  showDataConfig(context, "MySQL settings", entries);
 }
 
 showDataConfig(
   BuildContext context,
-  AppController ctrl,
+  //AppController ctrl,
   String title,
   List<Tuple3<String, Function, TextEditingController>> entries,
 ) {
