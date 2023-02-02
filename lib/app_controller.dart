@@ -17,12 +17,6 @@ class AppController extends GetxController {
 
   AppController(this.qrctrl);
 
-  int counter = 0;
-  void incrementCounter() {
-    counter++;
-    update();
-  }
-
   // GUI
   bool get isDark => store.isDark;
   ThemeData get theme => isDark ? ThemeData.dark() : ThemeData.light();
