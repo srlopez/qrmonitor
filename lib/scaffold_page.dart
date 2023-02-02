@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:tuple/tuple.dart';
-
 import 'app_controller.dart';
 import 'qr_data_page.dart';
 import 'dialogs.dart';
@@ -57,6 +55,7 @@ class ScaffoldPage extends StatelessWidget {
                   showDBConfig(context, _);
                 } else if (value == 1) {
                   showPreferences(context, _);
+                  _.preferencesUpdated();
                 } else if (value == 2) {
                   showAbout(context);
                 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_background/flutter_background.dart';
-
 import 'qr_controller.dart';
 
 import 'app_controller.dart';
@@ -26,17 +24,4 @@ class QrApp extends StatelessWidget {
             theme: _.theme,
             home: HomePage(),
           ));
-}
-
-Future<bool> startForegroundService() async {
-  const androidConfig = FlutterBackgroundAndroidConfig(
-    notificationTitle: 'QRMonitor',
-    notificationText: 'QRMonitor en backgorund',
-    notificationImportance: AndroidNotificationImportance.Default,
-    notificationIcon: AndroidResource(
-        name: 'background_icon',
-        defType: 'drawable'), // Default is ic_launcher from folder mipmap
-  );
-  await FlutterBackground.initialize(androidConfig: androidConfig);
-  return FlutterBackground.enableBackgroundExecution();
 }

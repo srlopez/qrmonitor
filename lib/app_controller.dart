@@ -69,6 +69,10 @@ class AppController extends GetxController {
     update();
   }
 
+  preferencesUpdated() {
+    update();
+  }
+
   bool get isPaused => paused;
   CameraFacing facingFront = CameraFacing.front;
 

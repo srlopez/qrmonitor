@@ -93,12 +93,14 @@ showDataConfig(
   String title,
   List<Tuple3<String, Function, TextEditingController>> entries,
 ) {
+  var colorAux = Colors.grey.shade500;
+  const radio = Radius.circular(15.0);
   showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+            borderRadius: BorderRadius.all(radio),
           ),
           contentPadding: const EdgeInsets.only(top: 5.0),
           title: Text(
@@ -108,6 +110,7 @@ showDataConfig(
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              Divider(color: colorAux),
               for (var i = 0; i < entries.length; i++) ...[
                 ListTile(
                   title: TextField(
@@ -124,10 +127,9 @@ showDataConfig(
               const SizedBox(height: 15.0),
               Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade500,
+                    color: colorAux,
                     borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(20.0),
-                        bottomRight: Radius.circular(20.0)),
+                        bottomLeft: radio, bottomRight: radio),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),

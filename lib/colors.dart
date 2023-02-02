@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'app_controller.dart';
 
+const openServicesITColor = "6A0A57";
 mainColor(BuildContext context) => HexColor.fromHex(
     Get.find<AppController>().store.color); //Colors.amber[900];
 //mainColor(context) => Theme.of(context).primaryColorDark;
@@ -19,7 +20,8 @@ extension HexColor on Color {
     final buffer = StringBuffer();
     if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
     buffer.write(hexString.replaceFirst('#', ''));
-    return Color(int.parse(buffer.toString(), radix: 16));
+    return Color(int.tryParse(buffer.toString(), radix: 16) ??
+        int.parse(openServicesITColor, radix: 16));
   }
 
   /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
