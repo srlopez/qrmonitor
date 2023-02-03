@@ -36,17 +36,27 @@ showAbout(BuildContext context) {
             children: [
               const Text(
                   'Esta App ha sido creada gracias a los siguientes amantes de la gastronomía:\n'),
-              LinkButton(
-                  "Paco",
-                  "https://lafonoteca.net/wp-content/uploads/2009/11/R-3036384-1392851872-3270.jpeg",
-                  1.5),
-              const Text('    El de la Receta'),
-              LinkButton(
-                  "Héctor", "https://www.linkedin.com/in/hectorherrero/", 1.5),
-              const Text('    El del Restaurante'),
-              LinkButton("Santi", "https://www.linkedin.com/in/srlopezh/", 1.5),
-              const Text('    El Cocinero'),
-              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(18.0, 0, 0, 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    LinkButton(
+                        "Paco",
+                        "https://lafonoteca.net/wp-content/uploads/2009/11/R-3036384-1392851872-3270.jpeg",
+                        1.5),
+                    const Text('El de la Receta 🍰'),
+                    LinkButton("Héctor",
+                        "https://www.linkedin.com/in/hectorherrero/", 1.5),
+                    const Text('El del Restaurante 🏩'),
+                    LinkButton(
+                        "Santi", "https://www.linkedin.com/in/srlopezh/", 1.5),
+                    const Text('El Cocinero 👨‍🍳'),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

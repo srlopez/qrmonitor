@@ -64,7 +64,7 @@ class ScaffoldPage extends StatelessWidget {
         // Página para mostrar resultados
         body: Stack(children: [
           Positioned(
-            bottom: 0,
+            bottom: 3,
             right: 7,
             child: Image.asset(
               'assets/logo.png',
