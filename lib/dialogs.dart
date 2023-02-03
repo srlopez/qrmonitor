@@ -46,7 +46,7 @@ showAbout(BuildContext context) {
               const Text('    El del Restaurante'),
               LinkButton("Santi", "https://www.linkedin.com/in/srlopezh/", 1.5),
               const Text('    El Cocinero'),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
