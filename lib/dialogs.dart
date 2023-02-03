@@ -18,19 +18,20 @@ showAbout(BuildContext context) {
     context: context,
     applicationIcon: Image.asset(
       'assets/app_icon.png',
-      height: 168 * .33,
-      width: 168 * .33,
+      height: 168 * .50,
+      width: 168 * .50,
       fit: BoxFit.contain,
       // color: const Color.fromARGB(222, 255, 255, 255),
       // colorBlendMode: BlendMode.dstOut,
     ),
     applicationName: 'OSit QRmonitor',
-    //applicationVersion: '0.0.1',
+    applicationVersion: '0.0.1',
     applicationLegalese: '©2023 openServices.eus',
     children: <Widget>[
       Padding(
           padding: const EdgeInsets.only(top: 15),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
@@ -45,6 +46,17 @@ showAbout(BuildContext context) {
               const Text('    El del Restaurante'),
               LinkButton("Santi", "https://www.linkedin.com/in/srlopezh/", 1.5),
               const Text('    El Cocinero'),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/logo.png',
+                    scale: 7,
+                  ),
+                ],
+              ),
+              //SizedBox(height: 20),
             ],
           ))
     ],

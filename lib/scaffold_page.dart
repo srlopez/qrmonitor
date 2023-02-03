@@ -62,7 +62,17 @@ class ScaffoldPage extends StatelessWidget {
               }),
             ]),
         // Página para mostrar resultados
-        body: const DataPage(),
+        body: Stack(children: [
+          Positioned(
+            bottom: 0,
+            right: 7,
+            child: Image.asset(
+              'assets/logo.png',
+              scale: 7,
+            ),
+          ),
+          DataPage(),
+        ]),
         //bottomSheet: SizedBox(height: 30),
         bottomNavigationBar: SizedBox(
           height: AppBar().preferredSize.height + 26,
