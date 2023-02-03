@@ -24,16 +24,16 @@ class Mysql {
       var conn = await getConnection();
       //centreon_storage.hosts.name
       var result = await conn.execute("""select 
-      centreon_storage.services.description, 
-      centreon_storage.services.output,
-      centreon_storage.services.last_hard_state,
-      centreon_storage.hosts.address
-      FROM centreon_storage.services, centreon_storage.hosts 
-      WHERE centreon_storage.services.host_id = centreon_storage.hosts.host_id 
-      AND (from_unixtime(centreon_storage.services.last_check) >= NOW() - INTERVAL 1 WEEK) 
-      AND centreon_storage.hosts.name = :qrcode
-      ORDER BY centreon_storage.services.description ASC, 
-      centreon_storage.services.last_check DESC""", {"qrcode": qrCode});
+      services.description, 
+      services.output,
+      services.last_hard_state,
+      hosts.address
+      FROM services, hosts 
+      WHERE services.host_id = hosts.host_id 
+      AND (from_unixtime(services.last_check) >= NOW() - INTERVAL 1 WEEK) 
+      AND hosts.name = :qrcode
+      ORDER BY services.description ASC, 
+      services.last_check DESC""", {"qrcode": qrCode});
 
       for (final row in result.rows) {
         // print(row.colAt(0));

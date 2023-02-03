@@ -42,6 +42,6 @@ class AppStorage extends GetxController {
   String get password => box.read('password') ?? '';
   set password(String val) => box.write('password', val);
 
-  String get database => box.read('database') ?? '';
+  String get database => box.read('database') ?? 'centreon_storage';
   set database(String val) => box.write('database', val);
 }
