@@ -62,7 +62,7 @@ showAbout(BuildContext context) {
                 children: [
                   Image.asset(
                     'assets/logo.png',
-                    scale: 10,
+                    scale: 7,
                   ),
                 ],
               ),

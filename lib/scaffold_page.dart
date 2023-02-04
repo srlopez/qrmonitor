@@ -68,7 +68,7 @@ class ScaffoldPage extends StatelessWidget {
             right: 7,
             child: Image.asset(
               'assets/logo.png',
-              scale: 10,
+              scale: 7,
             ),
           ),
           DataPage(),
