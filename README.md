@@ -50,7 +50,10 @@ La v. 0.0.1 de OSit QRmonitor conecta directamente al motor de base de datos de 
     CREATE USER 'usuario_qr'@'%' IDENTIFIED BY 'CONTRASEÑA';
     grant SELECT ON centreon_storage.* to 'usuario_qr'@'%';
 
-Nota: Si sabemos la dirección IP desde donde se van a conectar los Android, se podría indicar y no abrir a todo.
+**Nota**: Si sabemos la dirección IP desde donde se van a conectar los Android, se podría indicar y no abrir a todo.
+
+**Nota 2**: Desconocemos el versionado de Centreon necesario, está validado con una 22.10, entendemos que será compatible con versiones anteriores y futuras.
+
 
 ### Configurar la app
 
@@ -104,10 +107,18 @@ Los códigos QR no revelan información confidencial, por lo que, si cualquier u
 
 ### ¿Futuro?
 
-¿Habrán nuevas versiones con nuevas funcionalidades?¿Habrán nuevas apps que hagan otras cosas molonguis? Quién sabe, ideas hay, pero... _tempus fugit_.
+¿Habrán nuevas versiones con nuevas funcionalidades?¿Habrán nuevas apps que hagan otras cosas molonguis? Quién sabe, alguna idea loca queda, pero... _tempus fugit_.
 
-* * *
+### Licenciamiento
 
-[Revisión #7  
-](http://wiki.openservices.local/books/linux-varios/page/osit-qrmonitor/revisions)Creado Thu, Feb 2, 2023 11:49 PM por [Héctor Herrero](http://wiki.openservices.local/user/1)  
-Actualizado Fri, Feb 3, 2023 5:22 PM por [Héctor Herrero](http://wiki.openservices.local/user/1)
+Cómo indicamos OSit QRmonitor es gratuita y de código abierto, que podrá ser usada por cualquier persona o empresa.
+
+Con una única condición, los proveedores de IT no tienen derecho de modificar el código de la app, ni para su uso particular, ni la de sus clientes; ni por supuesto vender la app o derivados de esta. ;-)
+
+### Descarga
+
+Para poder acceder al APK compilado e instalártelo en tu Android, podrás hacerlo desde aquí: https://www.bujarra.com/osit-qrmonitor
+
+### Contacto
+
+Estamos en http://www.openservices.eus
