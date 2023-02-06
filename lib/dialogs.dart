@@ -42,10 +42,8 @@ showAbout(BuildContext context) {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    LinkButton(
-                        "Paco",
-                        "https://lafonoteca.net/wp-content/uploads/2009/11/R-3036384-1392851872-3270.jpeg",
-                        1),
+                    LinkButton("Paco",
+                        "https://www.youtube.com/watch?v=m3CHfRVM9uM", 1),
                     const Text('El de la Receta 🍰'),
                     LinkButton("Héctor",
                         "https://www.linkedin.com/in/hectorherrero/", 1),
